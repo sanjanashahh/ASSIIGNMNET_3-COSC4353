@@ -1,0 +1,30 @@
+{
+  "name": "userpro",
+  "version": "1.0.0",
+  "main": "backend.js",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "express-validator": "^7.2.0",
+    "multer": "^1.4.5-lts.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^6.3.3"
+  },
+  "jest": {
+  "collectCoverage": true,
+  "coverageDirectory": "coverage",
+  "collectCoverageFrom": [
+    "backend.js"  
+  ]
+}
+}
