@@ -61,6 +61,9 @@ npm install --save-dev jest supertest
 Run All Tests:
 npm test
 You should create the test folder and put test files in the folder.
+And If you want to run this module, remove: ‘shiv’ from both package json and lock json
+
+
 
  EVENT MANAGEMENT MODULE
 Prerequisites
@@ -76,19 +79,19 @@ Dev dependencies include:
 Jest, Supertest, Nodemon, NYC and Dotenv
  
 Running the Project
-- npm serverV.cjs
+-          	npm serverV.cjs
 It will display:
-- Server is running on http://localhost:3000
+-          	Server is running on http://localhost:3000
 Copy and paste the link into any web browser to open the webpage.
 To stop the server, press Control + C.
  
 Running Tests:
 To run the unit and integration tests:
-- npm test
+-          	npm test
 This will execute all the test
  
 To get test coverage enter
-- npm test -- --coverage
+-          	npm test -- --coverage
  
 Access the Application:
 Once the server is running, you can access the form at:
@@ -97,11 +100,19 @@ http://localhost:3000
 Configuration Details
 The project uses a .env file to manage environment variables. You can configure the PORT variable inside .env (default is 3000 if not provided).
 Example .env file:
-- PORT=3000
+-          	PORT=3000
  
 Troubleshooting Tips
 Port Conflict: If the default port 3000 is already in use, then will kill and process in 3000 and start server again.
-- lsof -i :3000
-- kill -9 <PID>
-- node server.cjs
+-          	lsof -i :3000
+-          	kill -9 <PID>
+-          	node server.cjs
 
+USER PROFILE MANAGEMENT:
+
+Prerequisites: node.js and install npm
+Installations done: npm, express, multer, cors, jest – coverage
+Run the backend server: npm backend.js
+Run the VPM.html, enter info to form and view the saved data by copy pasting ‘http://localhost:4000/volunteer’ from VPM.html’s script section. The server run can be cancelled by the shortcut ctrl+c
+Run the test: npm test
+To get test coverage: npm test – coverage
