@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer Matching</title>
+    <style>
+        :root {
+            --acent-color: #146d90;
+            --base-color: white;
+            --text-color: #2E2B41;
+            --input-color: #F3F0FF;
+        }
+
+        /* Set base styles for HTML */
+        html {
+            font-family: Poppins, Segoe UI, sans-serif;
+            font-size: 12pt;
+            color: var(--text-color);
+        }
+
+        /* Style the body element */
+        body {
+            background-image: url(medical.jpg);
+            background-size: cover;
+            background-position: right;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .form-container {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        /* Style the main heading */
+        h1 {
+            font-size: 2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+
+        h2 {
+            color: #146d90;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #146d90;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 15px; /* Space between the last input and the button */
+        }
+
+        button:hover {
+            background-color: #125a80;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Volunteer Matching</h1>
+        <form id="matchingForm">
+            <label for="volunteerName">Volunteer Name:</label>
+            <input type="text" id="volunteerName" name="volunteerName" readonly>
+
+            <label for="matchedEvent">Matched Program:</label>
+            <input type="text" id="matchedEvent" name="matchedEvent" readonly>
+
+            <button type="button" onclick="matchVolunteer()">Match Volunteer</button>
+        </form>
+    </div>
+
+    <script>
+        // Sample data for volunteers and events
+        const volunteers = [
+            { name: "James Smith", skills: ["Cardiology", "General"] },
+            { name: "Maria Garcia", skills: ["Pediatrics", "General"] },
+            { name: "John Doe", skills: ["Surgery", "Cardiology"] },
+            { name: "Jane Doe", skills: ["Oncology", "Pediatrics"] },
+        ];
+
+        const events = [
+            { name: "Cardiology Department", requiredSkills: ["Cardiology"] },
+            { name: "Pediatrics Department", requiredSkills: ["Pediatrics"] },
+            { name: "Surgery Unit", requiredSkills: ["Surgery"] },
+            { name: "Oncology Department", requiredSkills: ["Oncology"] },
+        ];
+
+        function matchVolunteer() {
+            // Logic to find a matching volunteer
+            let matchedVolunteer = null;
+            let matchedEvent = null;
+
+            // Find a matching event
+            for (const event of events) {
+                for (const volunteer of volunteers) {
+                    if (volunteer.skills.includes(event.requiredSkills[0])) {
+                        matchedVolunteer = volunteer.name;
+                        matchedEvent = event.name;
+                        break; // Exit inner loop when a match is found
+                    }
+                }
+                if (matchedVolunteer) break; // Exit outer loop if a match is found
+            }
+
+            // Display the matched volunteer and event
+            document.getElementById('volunteerName').value = matchedVolunteer || "No match found";
+            document.getElementById('matchedEvent').value = matchedEvent || "";
+        }
+    </script>
+</body>
+</html>
