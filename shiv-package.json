@@ -1,0 +1,22 @@
+{
+  "name": "notification-backend",
+  "version": "1.0.0",
+  "description": "Backend for notification system",
+  "main": "backend.js",
+  "scripts": {
+    "start": "node backend.js",
+    "test": "jest --coverage"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
+  }
+}
